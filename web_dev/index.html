@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Root Finding Algorithms</title>
+  <script type="module" src="/src/main.ts"></script>
+  
+</head>
+
+<body>
+  <div class="container">
+    <h1>Root Finding Algorithms</h1>
+
+    <div class="form-group">
+      <label for="function-input">Enter the function f(x):</label>
+      <input type="text" id="function-input" placeholder="x^2 - 5sin(x) + x - 1" value="x^2 - 5sin(x) + x - 1">
+    </div>
+
+    <div class="form-group">
+      <label for="interval-input">Enter the interval a, b:</label>
+      <input type="text" id="interval-input" placeholder="1, 2" value="1, 2">
+    </div>
+
+    <div class="form-group">
+      <label for="precision-input">Enter the required precision (epsilon):</label>
+      <input type="number" id="precision-input" step="0.0001" placeholder="0.0001" value="0.0001">
+    </div>
+
+    <div class="form-group">
+      <button id="find-root-btn">Find Roots</button>
+    </div>
+
+    <div class="result-section">
+      <h3>Results</h3>
+      <div id="bisection-result">
+        <h4>Bisection Method:</h4>
+        <p>Root: <span id="bisection-root"></span></p>
+        <p>Iterations: <span id="bisection-iterations"></span></p>
+      </div>
+      <div id="newton-result">
+        <h4>Newton's Method:</h4>
+        <p>Root: <span id="newton-root"></span></p>
+        <p>Iterations: <span id="newton-iterations"></span></p>
+      </div>
+      <div id="error-graph">
+        <h4>Convergence Graph (Error vs Iterations)</h4>
+        <canvas id="convergence-chart"></canvas>
+      </div>
+    </div>
+
+    <div class="error-message" id="error-message"></div>
+  </div>
+</body>
+
+</html>
