@@ -133,12 +133,7 @@ function interpolateParametric(points: Point[]): {
     pointsX.push({ x: t, y: points[i].x });
     pointsY.push({ x: t, y: points[i].y });
   }
-  const coeffsX = solveLinearSystem(
-    pointsX.map((pt) => {
-      return tValues.map((t) => Math.pow(t, pointsX.indexOf(pt)));
-    }),
-    pointsX.map((pt) => pt.y)
-  );
+
   // Instead, build the Vandermonde matrix explicitly:
   const A: number[][] = [];
   for (let i = 0; i < n; i++) {
@@ -149,7 +144,7 @@ function interpolateParametric(points: Point[]): {
     A.push(row);
   }
   const coeffsX2 = solveLinearSystem(
-    A.map((row, i) => [...row]),
+    A.map((row) => [...row]),
     pointsX.map((pt) => pt.y)
   );
   const coeffsY = solveLinearSystem(
