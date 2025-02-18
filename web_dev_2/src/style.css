@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.input-type,
+.methods,
+.evaluation {
+  margin-bottom: 15px;
+}
+
+.input-type label,
+.methods label {
+  margin-right: 15px;
+}
+
+div > label {
+  display: inline-block;
+  width: 150px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  padding: 5px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  margin-top: 10px;
+}
+
+.plot-container {
+  margin-top: 20px;
+}
+
+#message {
+  margin-top: 10px;
+  color: red;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Interpolation Experiment</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Interpolation Experiment</h1>
+
+    <!-- Input type selection -->
+    <div class="input-type">
+      <label>
+        <input type="radio" name="inputType" value="function" checked />
+        Function Input
+      </label>
+      <label>
+        <input type="radio" name="inputType" value="file" />
+        File Input (points)
+      </label>
+    </div>
+
+    <!-- Function Input Fields -->
+    <div id="function-input">
+      <div>
+        <label for="functionExpression">Function (in x):</label>
+        <input type="text" id="functionExpression" placeholder="e.g. x*sin(x) - x^2 + 1" />
+      </div>
+      <div>
+        <label for="intervalStart">Interval start:</label>
+        <input type="number" id="intervalStart" placeholder="0" />
+      </div>
+      <div>
+        <label for="intervalEnd">Interval end:</label>
+        <input type="number" id="intervalEnd" placeholder="2" />
+      </div>
+      <div>
+        <label for="polyDegree">Polynomial Degree:</label>
+        <input type="number" id="polyDegree" placeholder="5" />
+        <small>(This will generate degree+1 uniformly spaced points)</small>
+      </div>
+    </div>
+
+    <!-- File Input Field -->
+    <div id="file-input" style="display: none;">
+      <label for="fileUpload">Upload file with points:</label>
+      <input type="file" id="fileUpload" accept=".txt,.csv" />
+      <p class="hint">Format: <code>0,0; 1,1; 2,4; 3,6; …</code></p>
+    </div>
+
+    <!-- Method selection -->
+    <div class="methods">
+      <h3>Select interpolation methods:</h3>
+      <label>
+        <input type="checkbox" id="methodSLE" checked />
+        SLE (Vandermonde solve)
+      </label>
+      <label>
+        <input type="checkbox" id="methodLagrange" checked />
+        Lagrange Formula
+      </label>
+      <label>
+        <input type="checkbox" id="methodParametric" />
+        Parametric (for 2D curves)
+      </label>
+    </div>
+
+    <!-- Compute Button -->
+    <button id="computeBtn">Compute Interpolation</button>
+
+    <!-- Evaluation Section -->
+    <div class="evaluation">
+      <h3>Evaluate Interpolations</h3>
+      <div id="eval-function">
+        <label for="evalX">Evaluate at x (for SLE &amp; Lagrange):</label>
+        <input type="number" id="evalX" />
+        <button id="evalBtn">Evaluate</button>
+      </div>
+      <div id="eval-parametric" style="display: none;">
+        <label for="evalT">Evaluate at t (for Parametric, 0 ≤ t ≤ 1):</label>
+        <input type="number" id="evalT" min="0" max="1" step="0.01" />
+        <button id="evalTBtn">Evaluate Parametric</button>
+      </div>
+      <div id="evalResult"></div>
+    </div>
+
+    <!-- Plot Canvas -->
+    <div class="plot-container">
+      <canvas id="plotCanvas"></canvas>
+    </div>
+
+    <!-- Output / error messages -->
+    <div id="message"></div>
+  </div>
+
+  <!-- Import our main TS (compiled to JS) -->
+  <script type="module" src="src/main.ts"></script>
+</body>
+
+</html>
